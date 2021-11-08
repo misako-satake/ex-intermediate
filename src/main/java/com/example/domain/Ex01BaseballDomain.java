@@ -1,6 +1,5 @@
 package com.example.domain;
 
-import java.util.Date;
 
 public class Ex01BaseballDomain {
 

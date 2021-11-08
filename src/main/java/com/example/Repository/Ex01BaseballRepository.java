@@ -24,7 +24,7 @@ public class Ex01BaseballRepository {
 	
 	public List<Ex01BaseballDomain> findAll(){
 		
-		String sql = "SELECT league_name, team_name, headquarters, inauguration, history "
+		String sql = "SELECT id,league_name, team_name, headquarters, inauguration, history "
 				+ "FROM teams ORDER BY inauguration DESC";
 		
 		return template.query(sql, EX01BASEBALLDOMAIN_ROW_MAPPER);
@@ -33,7 +33,7 @@ public class Ex01BaseballRepository {
 	
 	public Ex01BaseballDomain load(Integer id) {
 		
-		String sql = "SELECT league_name, team_name, headquarters, inauguration, history "
+		String sql = "SELECT id,league_name, team_name, headquarters, inauguration, history "
 				+ "FROM teams WHERE id=:id";
 		
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id",id);

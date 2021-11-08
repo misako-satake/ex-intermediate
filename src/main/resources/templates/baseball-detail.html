@@ -5,6 +5,22 @@
 <title>タイトル</title>
 </head>
 <body>
-コンテンツ
+<div>
+<h2>球団名</h2>
+
+<span th:text="${ex01BaseballDomain.team_name}"></span>
+<h2>本拠地</h2>
+<span th:text="${ex01BaseballDomain.headquarters}"></span>
+<h2>発足</h2>
+<span th:text="${ex01BaseballDomain.inauguration}"></span>
+<h2>歴史</h2>
+<pre>
+<span th:text="${ex01BaseballDomain.history}"></span>
+</pre>
+</div>
+
+<form th:action="@{/ex01}">
+<button>戻る</button>
+</form>
 </body>
 </html>

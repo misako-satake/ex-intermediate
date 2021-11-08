@@ -5,6 +5,14 @@
 <title>タイトル</title>
 </head>
 <body>
-コンテンツ
+<h1>野球チーム一覧</h1>
+<li th:each="baseball:${baseballList}">
+<ul>
+<a th:href="@{/ex01/detail?id=}+${baseball.id}">
+<span th:text="${baseball.team_name}">ロッテ</span>
+</a>
+</ul>
+</li>
+
 </body>
 </html>
