@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>タイトル</title>
+</head>
+<body>
+
+<h1>衣類検索</h1>
+<br>
+<form th:action="@{/ex03/search}" method="post" th:object="${ex03ClothesForm}">
+	<input type="checkbox" th:field="*{gender}" value="0" checked>Man<br>
+	<input type="checkbox" th:field="*{gender}" value="1">Woman<br>
+
+	<select th:each="clothes0:${clothesList0}">
+		<option th:field="${clothes0.color}">
+		th:text="${clothes0.color}"
+		</option>
+	</select>
+	<br>
+	<button>検索</button>
+</form>
+
+<table th:each="clothes:${clothesList}" border="1">
+<tr>
+	<th>ジャンル</th>
+	<td><span th:text="${clothes.genre}"></span></td>
+</tr>
+<tr>
+	<th>サイズ</th>
+	<td><span th:text="${clothes.size}"></span></td>
+</tr>
+<tr>
+	<th>価格</th>
+	<td><span th:text="${#numbers.formatInteger(clothes.price,1,'COMMA')}"></span></td>
+</tr>
+
+
+</table>
+
+</body>
+</html>

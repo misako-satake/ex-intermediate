@@ -7,11 +7,34 @@
 <body>
 
 <h1>ホテル検索</h1>
-<form th:action="@{/ex02/search}+${price}" >
-<input type="text" th:value="${price}">円以下
+<form th:action="@{/ex02/search}" th:object="${ex02HotelForm}" method="post">
+<div th:errors="*{price}" style="color:red"></div>
+<input type="text" th:field="*{price}" >円以下
 <br>
+<p>
 <button>検索</button>
+</p>
 </form>
+<table th:each="hotel:${hotelList}" border="1">
+	<tr>
+	<th>ホテル名</th>
+	<td><span th:text="${hotel.hotelName}">見本ホテル</span></td>
+	</tr>
+	<tr>
+	<th>最寄り駅</th>
+	<td><span th:text="${hotel.nearestStation}">見本駅</span></td>
+	</tr>
+	<tr>
+	<th>価格</th>
+	<td><span th:text="${hotel.price}">見本円</span></td>
+	</tr>
+
+
+</table>
+
+
+
+
 
 </body>
 </html>
